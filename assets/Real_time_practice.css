@@ -1,0 +1,182 @@
+.header{
+  width:1900px;
+  height:100px;
+}
+
+.mp-route-option{
+  width:1900px;
+  height:700px;
+  float:left
+}
+
+.mp-upper-part{
+  height: 450px;
+  float:left
+}
+
+.mp-lower-part{
+  height: 450px;
+  float:left
+}
+
+.mp-route1-img{
+  width:900px;
+  float:left;
+  padding: 15px
+}
+
+.mp-route2-img{
+  width:900px;
+  float:left;
+  padding: 15px
+}
+
+.mp-route3-img{
+  width:900px;
+  float:left;
+  padding: 15px
+}
+
+.mp-route4-img{
+  width:900px;
+  float:left;
+  padding: 15px
+}
+
+.logo{
+  width: 100px;
+  float:left;
+}
+
+.banner{
+  width: 980px;
+  float:left;
+  padding: 10px;
+  color:white;
+  font-size: 20px;
+  text-align:center
+}
+
+.header-images{
+  width: 800px;
+  float: left
+}
+
+.header-image1{
+  width: 250px;
+  float: left;
+  padding:5px
+}
+
+.header-image2{
+  width: 250px;
+  float: left;
+  padding:5px
+}
+
+.header-image3{
+  width: 250px;
+  padding: 5px;
+  float: left
+}
+
+body{
+  font-family: "Times New Roman";
+  font-size:15px;
+  background-image: url("DCP_Background.png");
+
+  /* Full height */
+  height:100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size:cover
+}
+
+.box1 {
+  float: left;
+  padding: 10px;
+  height: 255px;
+  width: 395px;
+  border-color:red;
+  border-style:solid
+}
+
+.box2 {
+  float: left;
+  padding: 10px;
+  height: 255px;
+  width: 395px;
+  border-style:solid;
+  border-color:orange
+}
+
+.Bigbox {
+  float: left;
+  padding: 10px;
+  height: 255px;
+  width: 820px;
+  border-color:steelblue;
+  border-style:solid
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 920px; /* Should be removed. Only for demonstration */
+  width:100%
+}
+
+/* Left and right column */
+.column.side {
+  width: 40%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 45%;
+}
+
+.table_space
+{
+	height:20%;
+	padding: 1%
+}
+
+
+.driver_info{
+	height: 60%;
+	color:white;
+	padding: 1%
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("DCP_Background.png");
+
+  /* Full height */
+  height:100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size:cover
+}
+

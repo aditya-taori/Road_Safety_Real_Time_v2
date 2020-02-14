@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@^8.0.0/dist/index.js"></script>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    #deck-map-container {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+    }
+    
+    #map {
+      pointer-events: none;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    
+    #deckgl-overlay {
+      z-index: 2;
+    }
+    
+    #deck-map-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+    
+    #deck-container {
+      width: 100vw;
+      height: 100vh;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const jsonInput = {"initialViewState": {"bearing": 0, "latitude": 22.33072, "longitude": 69.8579, "maxZoom": 18, "minZoom": 10, "pitch": 0, "zoom": 12}, "layers": [{"@@type": "ScatterplotLayer", "data": [{"Alarm": NaN, "Continuous Driving Hours (HH_MM)": "07_30", "Distraction": NaN, "Distractions ": 2, "Driver Name": "Chandan Chaudhary", "Driver Number ": 1, "Event": NaN, "Fatigue": NaN, "Harsh Accelaration Notification": 3, "Harsh Braking Notification": 3, "Harsh Cornering Notifications": 2, "Lane Violation": NaN, "Lane Violations Notifications": 1, "Latitude": 22.33072, "Longitude": 69.8579, "Overspeeding Notifications": 4, "Risk Rating": 8.5, "Route": "Jamnagar Internal", "Route ID": "JJI", "Snapshot": 1, "Tailgating": NaN, "Time": NaN, "Vehicle Number": "GJ-10-TR-9245", "Vehicle Speed": NaN, "Weight": 3, "Yawning": 1}, {"Alarm": "Risky Driving", "Continuous Driving Hours (HH_MM)": "05_00", "Distraction": "Yes", "Distractions ": 1, "Driver Name": "Prahlad Kumar", "Driver Number ": 2, "Event": "Harsh Braking ", "Fatigue": "None", "Harsh Accelaration Notification": 2, "Harsh Braking Notification": 1, "Harsh Cornering Notifications": 0, "Lane Violation": "None", "Lane Violations Notifications": 1, "Latitude": 22.31997, "Longitude": 69.8814, "Overspeeding Notifications": 3, "Risk Rating": 6.3, "Route": "Jamnagar Internal", "Route ID": "JJI", "Snapshot": 1, "Tailgating": "None", "Time": "10:00", "Vehicle Number": "GJ-10-TR-3578", "Vehicle Speed": "70 kmph", "Weight": 2, "Yawning": 3}, {"Alarm": NaN, "Continuous Driving Hours (HH_MM)": "02_15", "Distraction": NaN, "Distractions ": 1, "Driver Name": "Ramesh Sharma", "Driver Number ": 3, "Event": NaN, "Fatigue": NaN, "Harsh Accelaration Notification": 0, "Harsh Braking Notification": 0, "Harsh Cornering Notifications": 0, "Lane Violation": NaN, "Lane Violations Notifications": 0, "Latitude": 22.33226, "Longitude": 69.87749000000001, "Overspeeding Notifications": 0, "Risk Rating": 3.2, "Route": "Jamnagar Internal", "Route ID": "JJI", "Snapshot": 1, "Tailgating": NaN, "Time": NaN, "Vehicle Number": "GJ-10-TR-8732", "Vehicle Speed": NaN, "Weight": 1, "Yawning": 2}, {"Alarm": NaN, "Continuous Driving Hours (HH_MM)": "02_45", "Distraction": NaN, "Distractions ": 0, "Driver Name": "Uday singh", "Driver Number ": 4, "Event": NaN, "Fatigue": NaN, "Harsh Accelaration Notification": 1, "Harsh Braking Notification": 0, "Harsh Cornering Notifications": 0, "Lane Violation": NaN, "Lane Violations Notifications": 0, "Latitude": 22.35506, "Longitude": 69.8723, "Overspeeding Notifications": 1, "Risk Rating": 4.5, "Route": "Jamnagar Internal", "Route ID": "JJI", "Snapshot": 1, "Tailgating": NaN, "Time": NaN, "Vehicle Number": "GJ-10-TR-1256", "Vehicle Speed": NaN, "Weight": 2, "Yawning": 1}, {"Alarm": NaN, "Continuous Driving Hours (HH_MM)": "08_00", "Distraction": NaN, "Distractions ": 4, "Driver Name": "Yashvant Kumar", "Driver Number ": 5, "Event": NaN, "Fatigue": NaN, "Harsh Accelaration Notification": 7, "Harsh Braking Notification": 5, "Harsh Cornering Notifications": 2, "Lane Violation": NaN, "Lane Violations Notifications": 2, "Latitude": 22.387220000000003, "Longitude": 69.86392, "Overspeeding Notifications": 6, "Risk Rating": 9.2, "Route": "Jamnagar Internal", "Route ID": "JJI", "Snapshot": 1, "Tailgating": NaN, "Time": NaN, "Vehicle Number": "GJ-10-TR-0326", "Vehicle Speed": NaN, "Weight": 3, "Yawning": 4}], "getFillColor": "@@=[Weight==1?141:255, Weight>1?Weight>2?0:126:182 , Weight==3?56:0, 140]", "getPosition": "@@=[Longitude,Latitude]", "getRadius": 100, "id": "3cfc14d3-b654-4274-b190-7f9b7f868040", "pickable": true}], "mapStyle": "mapbox://styles/mapbox/light-v10", "views": [{"@@type": "MapView", "controller": true}]};
+    const MAPBOX_API_KEY = 'pk.eyJ1IjoiYWRpdHlhdGFvcmkiLCJhIjoiY2s1NTMzM205MGJyNjNla2JxZDRxdHBvdiJ9.OmOHzC_AyvWfjv9Sulz3tw';
+    const tooltip = {'html': '<b>Alarm:</b> {Alarm} <br/> <b>Event:</b> {Event} <br/> <b>Vehicle Speed:</b> {Vehicle Speed} <br/> <b>Distraction:</b> {Distraction} <br/> <b>Fatigue:</b> {Fatigue} <br/> <b>Tailgating:</b> {Tailgating} <br/> <b>Lane Violation:</b> {Lane Violation}', 'style': {'backgroundColor': 'steelblue', 'color': 'white'}};
+  
+    const deck = createDeck({
+      mapboxApiKey: MAPBOX_API_KEY, 
+      container: document.getElementById('deck-container'),
+      jsonInput,
+      tooltip
+    });
+  </script>
+</html>
