@@ -143,7 +143,7 @@ plotly==4.4.1
 pluggy==0.13.1
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
-py==1.8.1
+py==1.10.0
 pydeck==0.2.0
 Pygments==2.5.2
 pyLDAvis==2.1.2
